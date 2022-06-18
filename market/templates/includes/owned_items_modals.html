@@ -1,0 +1,30 @@
+<style>
+  .modal-content{
+  color : black
+}
+</style>
+
+<!--sell form-->
+
+<div class="modal" id = "Sell-{{ item.id }}" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ item.name }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {{ form_sell.hidden_tag() }}
+          <p class = "text-center">Are you sure want to sell {{ item.name }} for {{ item.price }}$</p>
+          <input id="sold_item" name="sold_item" type="hidden"  value="{{ item.name }}">
+         {{ form_sell.submit(class="btn btn-outline-success btn-block btn-sm") }}
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

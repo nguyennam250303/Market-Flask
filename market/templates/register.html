@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+<body class = 'text-center'>
+<div class = 'container'>
+<form action = "" method="POST" class="form-register">
+    {{ form.hidden_tag() }}
+    <img src="https://thumbs.dreamstime.com/b/register-icon-logo-register-sign-dark-background-white-register-icon-logo-register-sign-dark-background-132952039.jpg" width="200" height="200">
+
+    <h1>Please create account here</h1>
+    <br>
+    {{ form.username.label() }}
+    {{ form.username(class="form-control", placeholder="Username") }}
+    {% if form.username.errors %}
+    {% for error in form.username.errors %}
+    <h7>{{ error }}</h7>
+    {% endfor %}
+    {% endif %}
+
+    {{ form.email_address.label() }}
+    {{ form.email_address(class="form-control", placeholder="Email Address") }}
+
+    {{ form.password1.label() }}
+    {{ form.password1(class="form-control", placeholder="Password") }}
+
+    {{ form.password2.label() }}
+    {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+    <br>
+    <h6>Already have an account ?</h6>
+    <a class = "btn btn-secondary btn-sm" href = "{{ url_for('login_page') }}">Login</a>
+    <br>
+    <br>
+
+    {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+</form>
+</div>
+</body>
+{% endblock %}

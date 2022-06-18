@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+<body class = 'text-center'>
+<div class = 'container'>
+<form method = "POST" action = "" class = "form-login">
+     {{ form.hidden_tag() }}
+    <img src = "https://thumbs.dreamstime.com/b/login-key-icon-isolated-black-background-login-key-icon-isolated-black-background-simple-vector-logo-162061939.jpg" width = "200" height = "200">
+    <h1>Please Login account here</h1>
+    <br>
+{{ form.username.label() }}
+{{ form.username(class = 'form-control', placeholder = "Username") }}
+
+{{ form.password.label() }}
+{{ form.password(class = 'form-control', placeholder = "Password") }}
+    <br>
+    <h6>Do not have an account ?</h6>
+    <a class = "btn btn-secondary btn-sm" href = "{{ url_for('register_page') }}">Register</a>
+<br>
+<br>
+{{ form.submit(class = 'btn btn-lg btn-primary btn-block') }}
+</form>
+</div>
+</body>
+{% endblock %}
